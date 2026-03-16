@@ -1,0 +1,78 @@
+text,true_label,pred_label,healthy_prob,disease_prob,correct
+pigeon pea roots show complete decay with dark discoloration and soft texture,1,1,0.27700091428221674,0.7229990857177833,1
+pigeon pea plants show healthy secondary branching after topping,0,0,0.687976430711618,0.31202356928838204,1
+coconut palms show reduced leaf size,1,1,0.3778090379101433,0.6221909620898567,1
+pea field shows healthy vine growth with abundant pod formation,0,0,0.7902488634004348,0.20975113659956518,1
+grape shoots show distortion and stunting with mite infestation,1,1,0.3445481855986098,0.6554518144013902,1
+cotton plants show uniform growth pattern,0,1,0.4863056909703066,0.5136943090296934,0
+mango trees exhibit black fungal spots and premature fruit drop,1,1,0.36480126812279245,0.6351987318772075,1
+maize plants are growing evenly with healthy leaf color and good plant height,0,0,0.7874856095738039,0.21251439042619608,1
+jute leaves show brown angular spots with yellow borders,1,1,0.1228317574532144,0.8771682425467856,1
+onion bulbs show neck rot with grey mold during storage,1,1,0.24728842995997236,0.7527115700400276,1
+lentil plants show downy mildew with white growth under leaf surface,1,1,0.2854299876524151,0.7145700123475849,1
+lentil plants show orange powdery pustules on lower leaf surfaces,1,1,0.2520999507996574,0.7479000492003426,1
+spinach plants display healthy dark green leaves with no abnormalities,0,0,0.787136242907557,0.21286375709244293,1
+coffee plants show healthy foliage and regular flowering patterns,0,0,0.6654286572832996,0.3345713427167004,1
+cotton crop shows insect infestation on young leaves,1,1,0.3238846994882373,0.6761153005117627,1
+wheat plants show fusarium head blight with pink mold on grain,1,1,0.30344142664380946,0.6965585733561905,1
+maize plants display galls of various sizes on leaves and stalks,1,1,0.3059703831920495,0.6940296168079505,1
+pearl millet plants show downy mildew with green ear formation,1,1,0.42846870986514396,0.571531290134856,1
+mung bean plants have deep green leaves with no interveinal yellowing,0,0,0.5486789353993907,0.4513210646006093,1
+brinjal plants show little leaf disease with small deformed leaves,1,1,0.3294123187716894,0.6705876812283106,1
+cowpea plants show healthy vines with dark green leaves and good pods,0,0,0.7385923100395453,0.2614076899604547,1
+okra field shows healthy pod development with good market size,0,0,0.8796058792774436,0.12039412072255642,1
+mustard pods show alternaria blight with dark brown circular lesions,1,1,0.1635460376658131,0.8364539623341869,1
+lentil crop shows healthy flowering with white pink blossoms,0,0,0.6796865930271276,0.32031340697287236,1
+cotton plants show healthy boll development with no shedding,0,0,0.7860767693398562,0.21392323066014382,1
+cabbage plants show ring spot with circular lesions and concentric rings,1,1,0.26223437152573525,0.7377656284742647,1
+chickpea leaves appear shriveled with fungal infection,1,1,0.3511953324148699,0.6488046675851301,1
+grape leaves show rough texture with poor fruiting,1,1,0.27507406921881805,0.724925930781182,1
+garlic plants show white rot with white fluffy fungal growth at base,1,1,0.22522563379049232,0.7747743662095077,1
+jute crops are growing straight with strong stems and green leaves,0,0,0.7196293671021514,0.2803706328978486,1
+muskmelon fruits show good netting pattern and healthy green color,0,0,0.7128006140657964,0.2871993859342036,1
+sesame plants display healthy capsule development with good seed filling,0,0,0.7884099197163383,0.21159008028366166,1
+apple fruits show corklike brown spots beneath skin indicating bitter pit,1,1,0.23453684255792562,0.7654631574420744,1
+pomegranate bark shows cracks with gum exudation and internal browning,1,1,0.41858404926915604,0.581415950730844,1
+brinjal field shows healthy fruit development with glossy appearance,0,0,0.8481543740539298,0.15184562594607023,1
+watermelon crop exhibits stem cracking near soil level,1,1,0.38220141590897316,0.6177985840910268,1
+jute crop shows leaf discoloration in patches,1,1,0.4099521298234333,0.5900478701765667,1
+chickpea leaves show dark necrotic spots and early leaf drop across several rows,1,1,0.15654864566972637,0.8434513543302736,1
+cabbage field shows healthy head formation with compact firm leaves,0,0,0.8103868684977056,0.18961313150229447,1
+jute plants appear upright and healthy,0,0,0.6640445620983144,0.3359554379016856,1
+turmeric field shows healthy rhizome development with good color,0,0,0.9006992863130828,0.09930071368691715,1
+muskmelon crop shows healthy runner development and branching,0,0,0.8633401480578088,0.1366598519421912,1
+sorghum leaves show target spot lesions with concentric brown rings,1,1,0.18286683263722636,0.8171331673627736,1
+cowpea field shows healthy vine development with good pod set,0,0,0.8660854524076971,0.13391454759230298,1
+black gram roots show brown discoloration and reduced nodule formation,1,1,0.25014053103027023,0.7498594689697298,1
+apple trees show abundant blossom set with healthy pinkwhite flowers,0,0,0.7407614445153328,0.2592385554846672,1
+coffee plants show healthy flush after pruning with strong regrowth,0,0,0.7524250280097746,0.24757497199022543,1
+spinach plants show white rust with white blisterlike pustules on leaves,1,1,0.15854573090502544,0.8414542690949746,1
+chickpea leaves show grayish powdery coating affecting entire canopy,1,1,0.2803301253485603,0.7196698746514397,1
+pomegranate shoots show dieback from tip downward with dark streaking,1,1,0.2558029798677519,0.7441970201322481,1
+soybean plants display healthy trifoliate leaves with normal pod set,0,0,0.6704197183832548,0.32958028161674524,1
+muskmelon vines show normal growth and good fruit set,0,0,0.661951759256989,0.338048240743011,1
+kidney bean plants wilt suddenly with roots showing internal browning,1,1,0.3282377546325188,0.6717622453674812,1
+coconut palms show healthy button formation after pollination,0,0,0.759407797313328,0.24059220268667203,1
+cauliflower head shows internal browning with discolored brown tissue inside,1,1,0.31687835645999574,0.6831216435400043,1
+watermelon fruits are developing well with healthy dark green stripes,0,0,0.7884998428560116,0.21150015714398837,1
+muskmelon fruits show surface cracking with fungal growth in cracks,1,1,0.2503759930772249,0.7496240069227751,1
+mung bean plants show consistent growth across the field,0,1,0.3971565167808494,0.6028434832191506,0
+apple trees show irregular leaf discoloration,1,1,0.40433003206313267,0.5956699679368673,1
+cauliflower plants display healthy white curd development with green leaves,0,0,0.7464361387077486,0.2535638612922514,1
+orange trees show twig dieback with gum exudation from infected branches,1,1,0.43491381395180595,0.565086186048194,1
+mango trees show healthy panicle emergence with good branching,0,0,0.8163107116651087,0.18368928833489123,1
+lentil plants display healthy tendrils and normal branching pattern,0,0,0.7493643879797729,0.25063561202022705,1
+rice field shows excellent tillering with 8 to 10 tillers per plant,0,0,0.5731030238861099,0.42689697611389005,1
+maize ears show incomplete kernel development with visible mold between rows,1,0,0.5249413056867662,0.4750586943132337,0
+wheat plants show healthy grain filling with golden uniform ripening,0,0,0.7233269752905301,0.27667302470946986,1
+maize plants have curled leaves and reduced height with fungal patches visible near the stem base,1,1,0.3206147179786639,0.6793852820213361,1
+moth bean plants are spreading well with healthy ground cover,0,0,0.7955256020124871,0.20447439798751288,1
+banana bunch shows healthy green fingers with uniform development,0,0,0.9059510852689392,0.09404891473106076,1
+mango trees display balanced flowering,0,0,0.5566588756439399,0.44334112435606005,1
+sorghum grain shows covered kernel smut with black smut balls,1,1,0.4625416437344225,0.5374583562655775,1
+pigeon pea flowers are abundant and bright with healthy petal color,0,0,0.7524888986741868,0.2475111013258132,1
+okra plants show cercospora leaf spot with circular brown spots on leaves,1,1,0.1432034351083672,0.8567965648916328,1
+apple trees show healthy spur development on older branches,0,0,0.6864114334407327,0.3135885665592672,1
+moth bean plants display insect damage with uneven foliage,1,1,0.46700047797428834,0.5329995220257117,1
+bitter gourd fruits show fruit fly damage with soft rotting entry wounds,1,1,0.37210882879681584,0.6278911712031842,1
+cotton plants show healthy first boll opening with white fiber,0,0,0.5658783491615659,0.4341216508384341,1
