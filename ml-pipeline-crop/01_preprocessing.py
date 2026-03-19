@@ -254,23 +254,27 @@ print("=" * 60)
 import joblib
 import os
 
-# Create output directory
-os.makedirs('/models', exist_ok=True)
-os.makedirs('/data/processed', exist_ok=True)
+# Paths relative to repo root (one level up from ml-pipeline-crop/)
+REPO_ROOT   = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+MODELS_OUT  = os.path.join(REPO_ROOT, 'models')
+DATA_OUT    = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data', 'processed')
 
-# Save preprocessors
-joblib.dump(scaler, '/models/scaler.pkl')
-joblib.dump(label_encoder, '/models/label_encoder.pkl')
+os.makedirs(MODELS_OUT, exist_ok=True)
+os.makedirs(DATA_OUT,   exist_ok=True)
+
+# Save preprocessors (backend/app.py expects these at {repo_root}/models/)
+joblib.dump(scaler,        os.path.join(MODELS_OUT, 'scaler.pkl'))
+joblib.dump(label_encoder, os.path.join(MODELS_OUT, 'label_encoder.pkl'))
 
 # Save train-test splits
-np.save('/data/processed/X_train.npy', X_train)
-np.save('/data/processed/X_test.npy', X_test)
-np.save('/data/processed/y_train.npy', y_train)
-np.save('/data/processed/y_test.npy', y_test)
+np.save(os.path.join(DATA_OUT, 'X_train.npy'), X_train)
+np.save(os.path.join(DATA_OUT, 'X_test.npy'),  X_test)
+np.save(os.path.join(DATA_OUT, 'y_train.npy'), y_train)
+np.save(os.path.join(DATA_OUT, 'y_test.npy'),  y_test)
 
-print(" Scaler saved:         /models/scaler.pkl")
-print(" Label encoder saved:  /models/label_encoder.pkl")
-print(" Train-test splits saved in /data/processed/")
+print(f" Scaler saved:         {os.path.join(MODELS_OUT, 'scaler.pkl')}")
+print(f" Label encoder saved:  {os.path.join(MODELS_OUT, 'label_encoder.pkl')}")
+print(f" Train-test splits saved in {DATA_OUT}")
 
 # ============================================================================
 # SUMMARY

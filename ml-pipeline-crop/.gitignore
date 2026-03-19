@@ -7,8 +7,8 @@ data/processed/*.npy
 !data/raw/.gitkeep
 !data/processed/.gitkeep
 
-# MODEL FILES - Don't upload trained models
-models/*.pkl
+# MODEL FILES - Allow trained models (needed by backend for deployment)
+# models/*.pkl
 
 # RESULT FILES - Don't upload generated results
 results/*.csv

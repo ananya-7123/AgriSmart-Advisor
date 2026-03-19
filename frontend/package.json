@@ -11,8 +11,13 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.89.0",
+    "axios": "^1.13.6",
+    "framer-motion": "^12.37.0",
+    "lucide-react": "^0.577.0",
     "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "react-dom": "^19.2.0",
+    "react-dropzone": "^15.0.0",
+    "react-router-dom": "^7.13.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",

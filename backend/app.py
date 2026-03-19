@@ -38,7 +38,7 @@ from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
 # ─────────────────────────────────────────────
 # 0. CONFIG
 # ─────────────────────────────────────────────
-BASE = r"C:\Users\KIIT0001\college\minor project\github_setup\crop-analysis-disease-prediction"
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # repo root
 
 # Model paths
 ML_RF_MODEL       = os.path.join(BASE, "ml-pipeline-crop",    "models", "rf_model.pkl")
@@ -352,8 +352,10 @@ def predict_cnn():
 # 4. RUN SERVER
 # ─────────────────────────────────────────────
 if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    debug = os.environ.get("FLASK_ENV") != "production"
     print("=" * 50)
     print("  ARI Fusion API Server")
-    print("  Running at http://localhost:5000")
+    print(f"  Running at http://0.0.0.0:{port}")
     print("=" * 50)
-    app.run(debug=True, host="0.0.0.0", port=5000)
+    app.run(debug=debug, host="0.0.0.0", port=port)

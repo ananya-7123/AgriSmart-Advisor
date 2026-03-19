@@ -212,10 +212,11 @@ npm-debug.log*
 
 !.gitkeep
 
-# Model files (too large for GitHub)
-*.h5
-*.keras
-*.pkl
+# Model files — allow trained models needed by backend
+# Large CNN model uses Git LFS (see .gitattributes)
+# *.h5
+# *.keras
+# *.pkl
 *.npy
 *.npz
 

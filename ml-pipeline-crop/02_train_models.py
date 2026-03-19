@@ -19,18 +19,20 @@ print("STEP 1: LOADING PREPROCESSED DATA")
 print("=" * 70)
 
 # Load preprocessed data from 01_preprocessing.py
-X_train = np.load('../data/processed/X_train.npy')
-X_test = np.load('../data/processed/X_test.npy')
-y_train = np.load('../data/processed/y_train.npy')
-y_test = np.load('../data/processed/y_test.npy')
+X_train = np.load('data/processed/X_train.npy')
+X_test = np.load('data/processed/X_test.npy')
+y_train = np.load('data/processed/y_train.npy')
+y_test = np.load('data/processed/y_test.npy')
 
 print(f"✓ X_train shape: {X_train.shape}")
 print(f"✓ X_test shape:  {X_test.shape}")
 print(f"✓ y_train shape: {y_train.shape}")
 print(f"✓ y_test shape:  {y_test.shape}")
 
-# Load label encoder to show class names
-label_encoder = joblib.load('../models/label_encoder.pkl')
+# Load label encoder to show class names (saved by 01_preprocessing.py to repo root /models/)
+import os as _os
+_repo_root = _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__)))
+label_encoder = joblib.load(_os.path.join(_repo_root, 'models', 'label_encoder.pkl'))
 print(f"✓ Number of classes: {len(label_encoder.classes_)}")
 
 # ============================================================================
