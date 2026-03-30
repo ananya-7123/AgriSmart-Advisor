@@ -4,7 +4,7 @@ flask
 flask-cors
 gunicorn
 
-numpy
+numpy==1.24.3
 pillow
 joblib
 
