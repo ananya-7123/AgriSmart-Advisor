@@ -1,22 +1,22 @@
 # 🌾 AgriSmart Advisor
+
 ### Multimodal Ensemble Framework for Crop Suitability and Disease Risk Assessment
 
 > A full-stack AI-powered agricultural decision-support system integrating Machine Learning, Natural Language Processing, and Deep Learning to provide comprehensive crop recommendations and disease risk assessment.
 
-
 ## Screenshots
 
-| Homepage | ML Crop Prediction |
-|----------|--------------------|
+| Homepage                                                           | ML Crop Prediction                                            |
+| ------------------------------------------------------------------ | ------------------------------------------------------------- |
 | ![Homepage](./frontend/public/screenshots/screenshot_homepage.png) | ![ML Result](./frontend/public/screenshots/screenshot_ml.png) |
 
-| NLP Disease Analysis | CNN Leaf Image |
-|----------------------|----------------|
+| NLP Disease Analysis                                            | CNN Leaf Image                                                  |
+| --------------------------------------------------------------- | --------------------------------------------------------------- |
 | ![NLP Result](./frontend/public/screenshots/screenshot_nlp.png) | ![CNN Result](./frontend/public/screenshots/screenshot_cnn.png) |
 
 ### Full ARI Assessment Report — High Risk Detection
-![ARI Full Report](./frontend/public/screenshots/screenshot_ari.png)
----
+
+## ![ARI Full Report](./frontend/public/screenshots/screenshot_ari.png)
 
 ## 📌 Table of Contents
 
@@ -27,6 +27,7 @@
 - [Tech Stack](#tech-stack)
 - [Project Structure](#project-structure)
 - [Getting Started](#getting-started)
+- [Deployment](#deployment)
 - [API Documentation](#api-documentation)
 - [Data Sources](#data-sources)
 - [How It Works](#how-it-works)
@@ -79,6 +80,7 @@ ML Pipeline  NLP Pipeline  CNN Pipeline
 ```
 
 **ARI Formula:**
+
 ```
 ARI = α(1 − C) + β × D
 
@@ -91,24 +93,27 @@ where:
 **Risk Levels:**
 | ARI Score | Risk Level |
 |-----------|------------|
-| 0 – 0.33  | Low Risk   |
+| 0 – 0.33 | Low Risk |
 | 0.33 – 0.66 | Moderate Risk |
-| 0.66 – 1.0  | High Risk |
+| 0.66 – 1.0 | High Risk |
 
 ---
 
 ## Tech Stack
 
 **Frontend**
+
 - React 18 + Vite
 - Supabase (auth + history)
 - CSS modules
 
 **Backend**
+
 - Python 3.10+
 - Flask + Flask-CORS
 
 **Machine Learning**
+
 - Scikit-learn (Random Forest, SVM, Naive Bayes, Voting Ensemble)
 - TF-IDF Vectorizer (NLP disease pipeline)
 - TensorFlow / Keras — MobileNetV2 transfer learning (CNN pipeline)
@@ -246,9 +251,18 @@ Frontend runs at `http://localhost:5173`
 
 ---
 
+## Deployment
+
+Use the deployment runbook for your final-prototype rollout:
+
+- [Render + Vercel Deployment Guide](docs/deployment-render-vercel.md)
+
+---
+
 ## API Documentation
 
 ### Base URL
+
 ```
 http://localhost:5000
 ```
@@ -256,9 +270,11 @@ http://localhost:5000
 ### Endpoints
 
 #### `POST /predict/crop`
+
 Crop suitability prediction from soil and climate parameters.
 
 **Request body:**
+
 ```json
 {
   "N": 90,
@@ -272,14 +288,15 @@ Crop suitability prediction from soil and climate parameters.
 ```
 
 **Response:**
+
 ```json
 {
   "recommended_crop": "rice",
   "confidence": 0.558,
   "top_3": [
-    {"crop": "rice", "probability": 0.558},
-    {"crop": "jute", "probability": 0.428},
-    {"crop": "papaya", "probability": 0.014}
+    { "crop": "rice", "probability": 0.558 },
+    { "crop": "jute", "probability": 0.428 },
+    { "crop": "papaya", "probability": 0.014 }
   ]
 }
 ```
@@ -287,9 +304,11 @@ Crop suitability prediction from soil and climate parameters.
 ---
 
 #### `POST /predict/disease/text`
+
 Disease risk estimation from farmer text report.
 
 **Request body:**
+
 ```json
 {
   "text": "Leaves are turning yellow with brown spots and wilting"
@@ -297,6 +316,7 @@ Disease risk estimation from farmer text report.
 ```
 
 **Response:**
+
 ```json
 {
   "prediction": "Diseased",
@@ -307,11 +327,13 @@ Disease risk estimation from farmer text report.
 ---
 
 #### `POST /predict/disease/image`
+
 Plant disease classification from leaf image.
 
 **Request:** `multipart/form-data` with field `image` (jpg/png)
 
 **Response:**
+
 ```json
 {
   "predicted_class": "Cotton___fresh_plant",
@@ -322,14 +344,17 @@ Plant disease classification from leaf image.
 ---
 
 #### `POST /predict/fusion`
+
 Full trimodal ARI assessment (all three inputs combined).
 
 **Request:** `multipart/form-data` with fields:
+
 - `N`, `P`, `K`, `temperature`, `humidity`, `ph`, `rainfall` (soil data)
 - `text` (farmer report)
 - `image` (leaf image)
 
 **Response:**
+
 ```json
 {
   "recommended_crop": "rice",
@@ -348,26 +373,30 @@ Full trimodal ARI assessment (all three inputs combined).
 
 ## Data Sources
 
-| Dataset | Source | Usage |
-|---------|--------|-------|
+| Dataset                     | Source                                                                                             | Usage                        |
+| --------------------------- | -------------------------------------------------------------------------------------------------- | ---------------------------- |
 | Crop Recommendation Dataset | [Kaggle – Atharva Ingle](https://www.kaggle.com/datasets/atharvaingle/crop-recommendation-dataset) | ML crop suitability pipeline |
-| PlantVillage Dataset | [Kaggle – Abdallah Ali](https://www.kaggle.com/datasets/abdallahalidev/plantvillage-dataset) | CNN disease classification |
-| Agricultural Text Reports | Synthetic / curated | NLP disease risk pipeline |
+| PlantVillage Dataset        | [Kaggle – Abdallah Ali](https://www.kaggle.com/datasets/abdallahalidev/plantvillage-dataset)       | CNN disease classification   |
+| Agricultural Text Reports   | Synthetic / curated                                                                                | NLP disease risk pipeline    |
 
 ---
 
 ## How It Works
 
 ### 1. Crop Suitability (ML Pipeline)
+
 Soil parameters (N, P, K, temperature, humidity, pH, rainfall) are fed into an ensemble of Random Forest, SVM, and Naive Bayes classifiers trained on 2,200 labeled crop samples. The ensemble uses a voting strategy to produce a final crop recommendation with confidence score `C`.
 
 ### 2. Disease Risk from Text (NLP Pipeline)
+
 Farmer symptom descriptions are vectorized using TF-IDF and classified by a trained ML classifier into Healthy / Diseased, producing a disease probability score.
 
 ### 3. Disease Classification from Image (CNN Pipeline)
+
 Leaf images are classified using a MobileNetV2 model fine-tuned on the PlantVillage dataset (38 disease classes). The output is a disease class label and probability score.
 
 ### 4. ARI Fusion
+
 The crop confidence `C` and weighted disease probability `D` (from NLP + CNN) are combined:
 
 ```

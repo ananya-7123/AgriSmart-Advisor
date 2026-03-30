@@ -64,11 +64,29 @@ HEALTHY_KEYWORDS = ["healthy", "Healthy", "fresh_leaf", "fresh_plant"]
 
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
+
+def get_allowed_origins():
+    """Resolve frontend origins from env for CORS configuration."""
+    configured = os.environ.get("FRONTEND_ORIGINS", "").strip()
+    if configured:
+        return [origin.strip().rstrip("/") for origin in configured.split(",") if origin.strip()]
+
+    # Safe local defaults when FRONTEND_ORIGINS is not configured.
+    return [
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",
+    ]
+
+
+ALLOWED_ORIGINS = get_allowed_origins()
+
 # ─────────────────────────────────────────────
 # 1. FLASK APP SETUP
 # ─────────────────────────────────────────────
 app = Flask(__name__)
-CORS(app)   # Allow all origins — update later when frontend URL is known
+CORS(app, resources={r"/*": {"origins": ALLOWED_ORIGINS}})
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 app.config["MAX_CONTENT_LENGTH"] = 16 * 1024 * 1024   # 16MB max upload
 
@@ -357,5 +375,6 @@ if __name__ == "__main__":
     print("=" * 50)
     print("  ARI Fusion API Server")
     print(f"  Running at http://0.0.0.0:{port}")
+    print(f"  Allowed CORS origins: {', '.join(ALLOWED_ORIGINS)}")
     print("=" * 50)
     app.run(debug=debug, host="0.0.0.0", port=port)

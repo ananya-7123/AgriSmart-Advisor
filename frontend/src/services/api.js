@@ -2,9 +2,18 @@ import axios from "axios";
 
 // In dev: Vite proxy rewrites /api → localhost:5000, so baseURL = '/api'
 // In prod: no proxy exists, so hit the Render URL directly from VITE_API_BASE_URL
+const configuredApiUrl = (import.meta.env.VITE_API_BASE_URL || "")
+  .trim()
+  .replace(/\/+$/, "");
 const BASE_URL = import.meta.env.PROD
-  ? import.meta.env.VITE_API_BASE_URL // e.g. https://agrismart-api.onrender.com
+  ? configuredApiUrl || window.location.origin // e.g. https://agrismart-api.onrender.com
   : "/api"; // Vite proxy handles this locally
+
+if (import.meta.env.PROD && !configuredApiUrl) {
+  console.warn(
+    "VITE_API_BASE_URL is not set; API requests will use the current site origin.",
+  );
+}
 
 const api = axios.create({
   baseURL: BASE_URL,
