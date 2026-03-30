@@ -113,14 +113,20 @@ nlp_model = joblib.load(NLP_MODEL)
 tfidf     = joblib.load(NLP_TFIDF)
 print("  ✅ NLP model loaded")
 
-cnn_model = load_model(CNN_MODEL, compile=False)
-with open(CNN_CLASS_INDICES, "r") as f:
-    keras_class_indices = json.load(f)
+try:
+    cnn_model = load_model(CNN_MODEL, compile=False)
 
-idx_to_class = {v: k for k, v in keras_class_indices.items()}
-NUM_CLASSES  = len(idx_to_class)
+    with open(CNN_CLASS_INDICES, "r") as f:
+        keras_class_indices = json.load(f)
 
-print("  ✅ CNN model loaded")
+    idx_to_class = {v: k for k, v in keras_class_indices.items()}
+    NUM_CLASSES  = len(idx_to_class)
+
+    print("  ✅ CNN model loaded")
+
+except Exception as e:
+    print("  ⚠️ CNN model failed to load:", e)
+    cnn_model = None
 print("All models loaded! Starting server...\n")
 
 # ─────────────────────────────────────────────
@@ -160,6 +166,11 @@ def get_nlp_prediction(farmer_text):
 
 def get_cnn_prediction(image_path): 
     """CNN pipeline — image disease probability"""
+
+    if cnn_model is None:
+        print("⚠️ CNN model not available")
+        return "Model unavailable", 0.0
+
     img      = Image.open(image_path).convert("RGB")
     img      = img.resize(IMG_SIZE)
     arr      = np.array(img, dtype=np.float32)
