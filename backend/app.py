@@ -99,7 +99,14 @@ print("Loading models...")
 
 rf_model      = joblib.load(ML_RF_MODEL)
 label_encoder = joblib.load(ML_LABEL_ENCODER)
-scaler        = joblib.load(ML_SCALER)
+
+try:
+    scaler = joblib.load(ML_SCALER)
+    print("  ✅ Scaler loaded")
+except Exception as e:
+    print("  ⚠️ Scaler load failed:", e)
+    scaler = None
+
 print("  ✅ ML model loaded")
 
 nlp_model = joblib.load(NLP_MODEL)
@@ -109,12 +116,12 @@ print("  ✅ NLP model loaded")
 cnn_model = load_model(CNN_MODEL, compile=False)
 with open(CNN_CLASS_INDICES, "r") as f:
     keras_class_indices = json.load(f)
+
 idx_to_class = {v: k for k, v in keras_class_indices.items()}
 NUM_CLASSES  = len(idx_to_class)
+
 print("  ✅ CNN model loaded")
-
 print("All models loaded! Starting server...\n")
-
 
 # ─────────────────────────────────────────────
 # HELPER FUNCTIONS
@@ -130,20 +137,19 @@ def clean_text(text):
 
 def get_crop_prediction(soil_features):
     """ML pipeline — crop suitability"""
-    features   = np.array(soil_features).reshape(1, -1)
-    features   = scaler.transform(features)
+    features = np.array(soil_features).reshape(1, -1)
+
+    if scaler:
+        features = scaler.transform(features)
+    else:
+        print("⚠️ Using raw features (no scaler)")
+
     proba      = rf_model.predict_proba(features)[0]
     pred_idx   = np.argmax(proba)
     confidence = float(proba[pred_idx])
     crop_name  = label_encoder.classes_[pred_idx]
 
-    # Top 3 crops
-    top3_idx   = np.argsort(proba)[::-1][:3]
-    top3       = [
-        {"crop": label_encoder.classes_[i], "confidence": round(float(proba[i]), 4)}
-        for i in top3_idx
-    ]
-    return crop_name, confidence, top3
+    return crop_name, confidence
 
 def get_nlp_prediction(farmer_text):
     """NLP pipeline — text disease probability"""
