@@ -1,0 +1,14 @@
+Logistic Regression — NLP Disease Detection
+Accuracy  : 96.10%
+Precision : 0.9500
+Recall    : 0.9744
+F1-Score  : 0.9620
+
+              precision    recall  f1-score   support
+
+ Healthy (0)     0.9730    0.9474    0.9600        38
+Diseased (1)     0.9500    0.9744    0.9620        39
+
+    accuracy                         0.9610        77
+   macro avg     0.9615    0.9609    0.9610        77
+weighted avg     0.9613    0.9610    0.9610        77

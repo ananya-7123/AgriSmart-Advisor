@@ -210,8 +210,31 @@ __marimo__/
 node_modules/
 npm-debug.log*
 
-# Datasets (never push actual data)
-datasets/structured/*
-datasets/unstructured/*
-
 !.gitkeep
+
+# Model files — allow trained models needed by backend
+# Large CNN model uses Git LFS (see .gitattributes)
+# *.h5
+# *.keras
+# *.pkl
+*.npy
+*.npz
+
+# Zip files
+*.zip
+
+# Virtual environments
+cnn_env/
+cnn_env310/
+
+# Large dataset images
+datasets/images/
+
+# VS Code
+.vscode/
+
+# Temp upload folder
+backend/uploads/
+
+fusion_env311/
+

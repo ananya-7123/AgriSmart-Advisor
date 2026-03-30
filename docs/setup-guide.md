@@ -22,7 +22,7 @@ The system is built as a **full-stack application** with ML pipelines integrated
 Top-level folders and purpose:
 
 - `frontend/` — React web app (UI)
-- `backend/` — Node.js + Express API
+- `backend/` — Flask API (Python)
 - `ml-pipeline-crop/` — Crop suitability ML pipeline
 - `nlp-pipeline-disease/` — Disease detection NLP pipeline
 - `datasets/` — Dataset references (do not commit raw data)
@@ -31,7 +31,7 @@ Top-level folders and purpose:
 ```text
 crop-analysis-disease-prediction/
 ├── frontend/                 # React frontend
-├── backend/                  # Node.js + Express backend
+├── backend/                  # Flask backend
 ├── ml-pipeline-crop/         # Crop suitability ML pipeline
 ├── nlp-pipeline-disease/     # Disease detection NLP pipeline
 ├── datasets/                 # Dataset references (no actual data)
@@ -63,8 +63,8 @@ Ensure the following tools are installed on your system:
 
 ### 🔹 Backend
 
-- Node.js
-- npm
+- Python 3.10+
+- pip
 
 ### 🔹 Machine Learning / NLP
 
@@ -83,24 +83,26 @@ git clone https://github.com/ananya-7123/crop-analysis-disease-prediction.git
 cd crop-analysis-disease-prediction
 ```
 
-### 🖥️ Step 2: Frontend Setup (React)
+### 🖥️ Step 2: Frontend Setup (React + Vite)
 
 ```bash
 cd frontend
 npm install
-npm start
+npm run dev
 ```
 
-Frontend will run at: http://localhost:3000
+Frontend will run at: http://localhost:5173
 
 This provides the user interface for inputs and predictions
 
-### 🧠 Step 3: Backend Setup (Node.js + Express)
+### 🧠 Step 3: Backend Setup (Flask + Python)
 
 ```bash
 cd backend
-npm install
-npm start
+python -m venv venv
+source venv/bin/activate   # Windows: venv\\Scripts\\activate
+pip install -r requirements.txt
+python app.py
 ```
 
 Backend will run at: http://localhost:5000 (default)
@@ -113,7 +115,7 @@ Disease detection
 
 Integration logic
 
-📌 Environment variables (e.g., DB URI) should be added via a .env file (not committed).
+📌 For production deployment, configure environment variables in Render/Vercel dashboards.
 
 ### 🤖 Step 4: ML Pipeline Setup (Crop Suitability)
 
@@ -179,7 +181,9 @@ Uses TF-IDF + classical ML models
 - If dependency installation fails → recheck Node/Python versions and package manager.
 - If ports clash → update port numbers in config and restart services.
 - If models are missing → retrain locally or verify model storage path.
+
 ---
+
 ### 📌 Final Notes
 
 This project is a college mini-project and follows clean engineering practices, documentation standards, and collaborative workflows.

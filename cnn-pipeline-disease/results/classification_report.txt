@@ -1,0 +1,51 @@
+Top-1 Accuracy: 0.9740 (97.40%)
+Top-5 Accuracy: 1.0000 (100.00%)
+
+                                                    precision    recall  f1-score   support
+
+                                Apple___Apple_scab     1.0000    1.0000    1.0000        95
+                                 Apple___Black_rot     1.0000    1.0000    1.0000        93
+                                   Apple___healthy     1.0000    1.0000    1.0000       247
+                                  Banana___Cordana     0.9808    1.0000    0.9903        51
+                                  Banana___Healthy     0.9416    0.9667    0.9539       150
+                                   Banana___Panama     0.9615    1.0000    0.9804       125
+                Banana___Yellow_and_Black_Sigatoka     0.9946    0.9760    0.9852       375
+Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot     0.8152    0.9740    0.8876        77
+                       Corn_(maize)___Common_rust_     1.0000    1.0000    1.0000       179
+               Corn_(maize)___Northern_Leaf_Blight     0.9850    0.8851    0.9324       148
+                            Corn_(maize)___healthy     1.0000    0.9885    0.9942       174
+                            Cotton___diseased_leaf     0.9333    0.9767    0.9545        43
+                           Cotton___diseased_plant     0.9915    0.9590    0.9750       122
+                               Cotton___fresh_leaf     0.9836    0.9375    0.9600        64
+                              Cotton___fresh_plant     0.9265    1.0000    0.9618        63
+                                 Grape___Black_rot     1.0000    0.9887    0.9943       177
+                      Grape___Esca_(Black_Measles)     0.9952    1.0000    0.9976       208
+                                   Grape___healthy     0.9846    1.0000    0.9922        64
+                               Mango___Anthracnose     1.0000    1.0000    1.0000        75
+                          Mango___Bacterial_Canker     1.0000    1.0000    1.0000        75
+                            Mango___Cutting_Weevil     1.0000    1.0000    1.0000        75
+                                  Mango___Die_Back     1.0000    1.0000    1.0000        75
+                                Mango___Gall_Midge     1.0000    1.0000    1.0000        75
+                                   Mango___Healthy     1.0000    1.0000    1.0000        75
+                            Mango___Powdery_Mildew     1.0000    1.0000    1.0000        75
+                               Mango___Sooty_Mould     1.0000    1.0000    1.0000        75
+          Orange___Haunglongbing_(Citrus_greening)     1.0000    1.0000    1.0000       826
+                             Potato___Early_blight     0.9933    0.9933    0.9933       150
+                              Potato___Late_blight     0.9792    0.9400    0.9592       150
+                                  Potato___healthy     0.7667    1.0000    0.8679        23
+                      Rice___Bacterial_Leaf_Blight     0.9767    0.8842    0.9282        95
+                                 Rice___Brown_Spot     0.9038    0.9691    0.9353        97
+                                    Rice___Healthy     0.9798    0.9898    0.9848        98
+                                 Rice___Leaf_Blast     0.9318    0.8632    0.8962        95
+                                 Rice___Leaf_scald     0.9010    0.9681    0.9333        94
+                              Rice___Sheath_Blight     0.9684    0.9684    0.9684        95
+                             Tomato___Early_blight     0.9857    0.9200    0.9517       150
+                              Tomato___Late_blight     0.9656    0.9825    0.9740       286
+                                  Tomato___healthy     0.9835    1.0000    0.9917       239
+                                  coffee___healthy     0.9310    0.9076    0.9191       119
+                          coffee___red_spider_mite     0.6364    0.2800    0.3889        25
+                                     coffee___rust     0.7383    0.8778    0.8020        90
+
+                                          accuracy                         0.9740      5687
+                                         macro avg     0.9556    0.9571    0.9537      5687
+                                      weighted avg     0.9748    0.9740    0.9736      5687

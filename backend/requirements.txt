@@ -1,0 +1,9 @@
+flask==3.1.*
+flask-cors==5.*
+gunicorn==23.*
+numpy==1.26.*
+scikit-learn==1.6.*
+joblib==1.4.*
+Pillow==11.*
+tensorflow-cpu==2.16.*
+werkzeug==3.1.*
