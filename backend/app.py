@@ -32,6 +32,7 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 logging.getLogger('tensorflow').setLevel(logging.ERROR)
 
 import tensorflow as tf
+tf.keras.backend.clear_session()
 from tensorflow.keras.models import load_model
 from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
 
@@ -370,11 +371,11 @@ def predict_cnn():
 # 4. RUN SERVER
 # ─────────────────────────────────────────────
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    debug = os.environ.get("FLASK_ENV") != "production"
+    port = int(os.environ.get("PORT", 10000))
     print("=" * 50)
     print("  ARI Fusion API Server")
     print(f"  Running at http://0.0.0.0:{port}")
     print(f"  Allowed CORS origins: {', '.join(ALLOWED_ORIGINS)}")
     print("=" * 50)
-    app.run(debug=debug, host="0.0.0.0", port=port)
+
+    app.run(host="0.0.0.0", port=port)
