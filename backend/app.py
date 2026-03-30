@@ -155,7 +155,7 @@ def get_crop_prediction(soil_features):
     confidence = float(proba[pred_idx])
     crop_name  = label_encoder.classes_[pred_idx]
 
-    return crop_name, confidence
+    return crop_name, confidence, []
 
 def get_nlp_prediction(farmer_text):
     """NLP pipeline — text disease probability"""
